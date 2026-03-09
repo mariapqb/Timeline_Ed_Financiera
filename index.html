@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educación Financiera Colombia - Interactiva</title>
+    <title>Educación Financiera Colombia</title>
     <style>
         :root {
             --color-fase1: #8e44ad;
@@ -19,14 +19,17 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        h1 { color: #2c3e50; margin-bottom: 10px; text-align: center; font-size: 2.2rem; }
-        .instruccion { color: #7f8c8d; margin-bottom: 40px; font-style: italic; }
+        .header { text-align: center; margin-bottom: 40px; max-width: 800px; }
+        h1 { color: #1a252f; margin-bottom: 10px; font-size: 2.5rem; }
+        .subtitle { font-size: 1.1rem; color: #7f8c8d; margin-bottom: 15px; }
+        .instruccion { color: #2c3e50; font-style: italic; font-weight: 500; }
 
         /* Estructura de la Línea */
         .timeline {
             position: relative;
             max-width: 900px;
             width: 100%;
+            margin-top: 20px;
         }
 
         .timeline::after {
@@ -77,12 +80,17 @@
 
         .date { font-weight: 800; font-size: 1.3rem; display: block; }
         .title { font-weight: 700; color: #34495e; margin: 5px 0; display: block; }
-        .summary { font-size: 0.9rem; color: #7f8c8d; line-height: 1.4; }
+        .summary { font-size: 0.9rem; color: #576574; line-height: 1.4; }
 
         /* Colores por Fase */
         .f1 .date { color: var(--color-fase1); } .f1 .content { border-top-color: var(--color-fase1); }
+        .f1::after { border-color: var(--color-fase1); }
+
         .f2 .date { color: var(--color-fase2); } .f2 .content { border-top-color: var(--color-fase2); }
+        .f2::after { border-color: var(--color-fase2); }
+
         .f3 .date { color: var(--color-fase3); } .f3 .content { border-top-color: var(--color-fase3); }
+        .f3::after { border-color: var(--color-fase3); }
 
         /* VENTANA EMERGENTE (MODAL) */
         .modal {
@@ -114,7 +122,7 @@
         #m-title { font-size: 1.4rem; color: #2c3e50; margin: 10px 0; border-bottom: 2px solid #eee; padding-bottom: 10px; display: block;}
         #m-text { font-size: 1.05rem; line-height: 1.8; color: #576574; }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .timeline::after { left: 31px; }
             .container { width: 100%; padding-left: 70px; text-align: left; }
             .container::after { left: 21px; }
@@ -124,56 +132,99 @@
 </head>
 <body>
 
-    <h1>🇨🇴 Marco Legal Educación Financiera</h1>
-    <p class="instruccion">Haz clic en cada hito para ver el detalle completo</p>
+    <div class="header">
+        <h1>Educación Financiera en Colombia</h1>
+        <p class="subtitle">Evolución del marco legal y políticas públicas hacia el bienestar financiero.</p>
+        <p class="instruccion">Haz clic en cada hito para ver el detalle completo</p>
+    </div>
 
     <div class="timeline">
         
-        <div class="container left f1" onclick="openM('1994', 'Ley 115: Ley General de Educación', 'Esta es la base de todo el sistema educativo colombiano. Aunque no menciona el término \'financiero\' explícitamente, su importancia radica en que define la educación como una formación integral. <br><br><b>Impacto:</b> Permitió que en años posteriores la educación económica se integrara no como una clase de contabilidad, sino como una herramienta para el bienestar social y el desarrollo humano.')">
+        <div class="container left f1" onclick="openM('1994', 'Ley 115: Ley General de Educación', '<b>Ley General de Educación:</b> Establece la base para la formación integral y social del ciudadano. Define la educación como un proceso de formación permanente, personal, cultural y social que se fundamenta en una concepción integral de la persona humana.')">
             <div class="content">
                 <span class="date">1994</span>
-                <span class="title">La Semilla Educativa</span>
+                <span class="title">Ley 115</span>
                 <p class="summary">Formación integral como base ciudadana.</p>
             </div>
         </div>
 
-        <div class="container right f1" onclick="openM('2009', 'Ley 1328: Protección al Consumidor', 'Hito fundamental que crea el Régimen de Protección al Consumidor Financiero. <br><br><b>Lo que cambió:</b> Estableció que los bancos tienen la <b>obligación legal</b> de educar a sus clientes. No es un favor, es un deber. Las entidades deben explicar claramente los riesgos, costos y beneficios de cada producto para evitar el sobreendeudamiento.')">
+        <div class="container right f1" onclick="openM('2009', 'Ley 1328: Reforma Financiera', '<b>Reforma Financiera:</b> Obliga a las entidades a educar a sus clientes sobre productos y riesgos. Establece el Régimen de Protección al Consumidor Financiero donde las entidades tienen el deber de informar claramente.')">
             <div class="content">
                 <span class="date">2009</span>
-                <span class="title">Derechos del Usuario</span>
+                <span class="title">Ley 1328</span>
                 <p class="summary">Obligación bancaria de educar al cliente.</p>
             </div>
         </div>
 
-        <div class="container left f2" onclick="openM('2013', 'Orientaciones Pedagógicas MEN', 'El Ministerio de Educación Nacional lanzó estas guías para aterrizar la economía a los colegios. <br><br><b>Detalle:</b> Propone trabajar la educación financiera como proyectos transversales. Es decir, que un niño aprenda sobre ahorro en Matemáticas, sobre consumo responsable en Ética y sobre presupuesto en Ciencias Sociales.')">
+        <div class="container left f1" onclick="openM('2011', 'Ley 1450 (PND)', 'Se crea la <b>Comisión Intersectorial para la Inclusión Financiera</b> como prioridad nacional. Busca coordinar las políticas públicas para facilitar el acceso y uso de servicios financieros.')">
+            <div class="content">
+                <span class="date">2011</span>
+                <span class="title">Ley 1450 (PND)</span>
+                <p class="summary">Inclusión financiera como prioridad nacional.</p>
+            </div>
+        </div>
+
+        <div class="container right f2" onclick="openM('2013', 'Orientaciones MEN', '<b>Orientaciones del Ministerio de Educación:</b> Instrucciones para integrar la educación económica en los proyectos escolares transversales. Propone guías prácticas para docentes y estudiantes.')">
             <div class="content">
                 <span class="date">2013</span>
-                <span class="title">Finanzas en el Colegio</span>
-                <p class="summary">Guías prácticas para docentes y estudiantes.</p>
+                <span class="title">Orientaciones MEN</span>
+                <p class="summary">Finanzas integradas en el currículo escolar.</p>
             </div>
         </div>
 
-        <div class="container right f2" onclick="openM('2014', 'Ley 1731: Fomento Rural', 'Una ley diseñada para cerrar la brecha entre la ciudad y el campo. <br><br><b>Importancia:</b> Fomenta la educación financiera específicamente para el sector rural y agropecuario. Busca que los campesinos entiendan los microcréditos, seguros agrarios y cómo proteger su patrimonio frente a las cosechas.')">
+        <div class="container left f2" onclick="openM('2014', 'Decreto 457', 'Lanzamiento oficial de la <b>ENEEF</b> (Estrategia Nacional de Educación Económica y Financiera), coordinada por el Ministerio de Hacienda.')">
             <div class="content">
                 <span class="date">2014</span>
-                <span class="title">Educación en el Campo</span>
-                <p class="summary">Cerrando brechas en el sector rural.</p>
+                <span class="title">Decreto 457</span>
+                <p class="summary">Lanzamiento oficial de la ENEEF.</p>
             </div>
         </div>
 
-        <div class="container left f3" onclick="openM('2020', 'Decreto 1297: Era Fintech', 'Regula la entrada de nuevas tecnologías financieras en Colombia. <br><br><b>Contexto:</b> Con el auge de billeteras digitales (Nequi, Daviplata), este decreto impulsa que la educación financiera sea digital. Se enfoca en la seguridad cibernética, pagos electrónicos y la simplificación de procesos para que más gente entre al sistema.')">
+        <div class="container right f2" onclick="openM('2014', 'Ley 1731: Fomento Rural', '<b>Fomento Rural:</b> Educación financiera específica para cerrar la brecha en el campo. Enfocada en productores rurales para el manejo de microcréditos y seguros.')">
+            <div class="content">
+                <span class="date">2014</span>
+                <span class="title">Ley 1731</span>
+                <p class="summary">Educación financiera para el sector rural.</p>
+            </div>
+        </div>
+
+        <div class="container left f2" onclick="openM('2017', 'Estrategia ENEEF', 'Implementación de estándares internacionales para mejorar la salud financiera. Busca que los colombianos tomen decisiones informadas para mejorar su calidad de vida.')">
+            <div class="content">
+                <span class="date">2017</span>
+                <span class="title">Estrategia ENEEF</span>
+                <p class="summary">Uso de estándares internacionales de salud financiera.</p>
+            </div>
+        </div>
+
+        <div class="container right f3" onclick="openM('2020', 'CONPES 4005', '<b>Política Nacional de Inclusión:</b> Conecta las finanzas con la vida diaria y MiPymes. Enfocada en que el sistema financiero apoye la productividad del país.')">
             <div class="content">
                 <span class="date">2020</span>
-                <span class="title">Revolución Digital</span>
-                <p class="summary">Enfoque en Fintech y pagos electrónicos.</p>
+                <span class="title">CONPES 4005</span>
+                <p class="summary">Inclusión conectada con la productividad.</p>
             </div>
         </div>
 
-        <div class="container right f3" onclick="openM('2022', 'CONPES 4051: Visión 2026', 'Es la política de inclusión y educación financiera más moderna de Colombia. <br><br><b>La Meta:</b> Pasa del concepto de \'acceso\' (tener una cuenta) al concepto de \'Bienestar Financiero\'. Busca que para el 2026, los colombianos tengan resiliencia financiera, sepan enfrentar crisis y mejoren su calidad de vida a través de decisiones inteligentes.')">
+        <div class="container left f3" onclick="openM('2020', 'Decreto 1297', '<b>Impulso Fintech:</b> Digitalización de pagos y actualización de educación hacia lo virtual. Regula billeteras digitales y promueve la seguridad cibernética.')">
+            <div class="content">
+                <span class="date">2020</span>
+                <span class="title">Decreto 1297</span>
+                <p class="summary">Digitalización y revolución Fintech.</p>
+            </div>
+        </div>
+
+        <div class="container right f3" onclick="openM('2021', 'Decreto 1517', 'Ajuste de gobernanza para asegurar la ejecución de la Política Nacional de Inclusión Financiera. Refuerza la coordinación entre instituciones del Estado.')">
+            <div class="content">
+                <span class="date">2021</span>
+                <span class="title">Decreto 1517</span>
+                <p class="summary">Ajuste de gobernanza para la Política Nacional.</p>
+            </div>
+        </div>
+
+        <div class="container left f3" onclick="openM('2022', 'CONPES 4051', '<b>Visión 2026:</b> Enfocada en el bienestar financiero real, no solo en tener productos. Busca resiliencia y decisiones inteligentes para mejorar la calidad de vida.')">
             <div class="content">
                 <span class="date">2022</span>
-                <span class="title">Bienestar Financiero</span>
-                <p class="summary">La política nacional con visión a futuro.</p>
+                <span class="title">CONPES 4051</span>
+                <p class="summary">Hacia el bienestar financiero y la resiliencia.</p>
             </div>
         </div>
 
@@ -195,12 +246,12 @@
             document.getElementById('m-title').innerText = title;
             document.getElementById('m-text').innerHTML = text;
             
-            // Colores dinámicos en el modal
-            let color = "#27ae60";
-            if(parseInt(date) < 2012) color = "#8e44ad";
-            else if(parseInt(date) < 2019) color = "#f39c12";
+            let color = "#27ae60"; 
+            let year = parseInt(date);
+            if(year < 2012) color = "#8e44ad"; 
+            else if(year < 2019) color = "#f39c12"; 
+            
             dateEl.style.color = color;
-
             document.getElementById('modalBox').style.display = "flex";
         }
 
